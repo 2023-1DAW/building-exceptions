@@ -52,10 +52,12 @@ public class ApartmentReader implements Reader<Apartment> {
             try {
                 log.info(message);
                 number = scanner.nextInt();
+                scanner.nextLine();
             } catch (InputMismatchException e) {
                 log.error("El valor introducido no es un entero");
-            } finally {
                 scanner.nextLine();
+            } finally {
+
             }
         } while (number == null);
         return number;

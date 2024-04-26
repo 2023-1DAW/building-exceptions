@@ -11,6 +11,7 @@ import java.util.List;
 public class Building {
     private String address;
     private String city;
+    private int zipCode;
     private List<Apartment> apartments;
 
     public Apartment getApartment(int floor, String door) throws ApartmentNotFoundException {
@@ -20,6 +21,11 @@ public class Building {
             }
         }
         throw new ApartmentNotFoundException(floor, door);
+    }
+
+    public List<Owner> getApartmentOwners(int floor, String door) throws ApartmentNotFoundException {
+        Apartment apartment =getApartment(floor, door);
+        return apartment.getOwners();
     }
 
 
